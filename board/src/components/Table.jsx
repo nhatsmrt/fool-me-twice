@@ -34,6 +34,10 @@ import Collapse from '@material-ui/core/Collapse';
 import Backdrop from '@material-ui/core/Backdrop';
 import WikiSource from './WikiSource.jsx';
 
+import IconButton from '@material-ui/core/IconButton';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+
+
 import Timer from './Timer.jsx';
 import Loading from './Loading.jsx';
 // import DisplayAnswerEvidence from './DisplayAnswerEvidence.jsx';
@@ -360,6 +364,12 @@ export default function Table({data, config, game, onComplete}) {
     if (gameState === STARTING || message)
       return (
         <>
+          {onComplete && (
+            <IconButton variant="h4" align="left" onClick={() => onComplete(Result.CANCEL)}>
+              <ArrowBackIosIcon />
+              <span>Back</span>
+            </IconButton>
+          )}
           <Typography
             component="h1"
             variant="h2"
