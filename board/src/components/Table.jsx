@@ -37,7 +37,6 @@ import WikiSource from './WikiSource.jsx';
 import IconButton from '@material-ui/core/IconButton';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
-
 import Timer from './Timer.jsx';
 import Loading from './Loading.jsx';
 // import DisplayAnswerEvidence from './DisplayAnswerEvidence.jsx';
@@ -365,7 +364,11 @@ export default function Table({data, config, game, onComplete}) {
       return (
         <>
           {onComplete && (
-            <IconButton variant="h4" align="left" onClick={() => onComplete(Result.CANCEL)}>
+            <IconButton
+              variant="h4"
+              align="left"
+              onClick={() => onComplete(Result.CANCEL)}
+            >
               <ArrowBackIosIcon />
               <span>Back</span>
             </IconButton>
