@@ -280,6 +280,8 @@ function Workflow({config, history}) {
   const [workflow, setWorkflow] = useState();
   const [progress, setProgress] = useState(0);
   const workflowID = config.getString('kWorkflowID');
+  const taskIndex = task => task.type === VERIFY ? 2 : (task.veracity === "true" ? 0 : 1)
+
   useEffect(() => {
     if (!status) return;
     console.log('Getting workflow ', workflowID);
@@ -289,7 +291,7 @@ function Workflow({config, history}) {
         const to_dos = Object.values(w)
           .map(withIndex)
           .filter(t => canSee(t, status))
-          .map(t => [seedrandom(userID + t.index)(), t])
+          .map(t => [taskIndex(t), t])
           .sort()
           .map(pair => pair[1]);
         const total = to_dos.length;
