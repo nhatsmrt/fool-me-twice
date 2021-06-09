@@ -280,7 +280,8 @@ function Workflow({config, history}) {
   const [workflow, setWorkflow] = useState();
   const [progress, setProgress] = useState(0);
   const workflowID = config.getString('kWorkflowID');
-  const taskIndex = task => task.type === VERIFY ? 2 : (task.veracity === "true" ? 0 : 1)
+  const taskIndex = task =>
+    task.type === VERIFY ? 2 : task.veracity === 'true' ? 0 : 1;
 
   useEffect(() => {
     if (!status) return;
