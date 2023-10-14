@@ -445,6 +445,7 @@ export default class Editor extends React.Component {
                 {onComplete && (
                   <IconButton onClick={() => onComplete(Result.CANCEL)}>
                     <ArrowBackIosIcon />
+                    <span>Back</span>
                   </IconButton>
                 )}
                 {page}
